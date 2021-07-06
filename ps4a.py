@@ -181,6 +181,9 @@ def isValidWord(word, hand, wordList):
     for letter in word:
         if letter in hand_copy.keys():
             correct_letter_counts += 1
+            hand_copy[letter] -= 1
+            if hand_copy[letter] == 0:
+                del(hand_copy[letter])
     if correct_letter_counts == len(word) and word in wordList:
         return True
     else:
