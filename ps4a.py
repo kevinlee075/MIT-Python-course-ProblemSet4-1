@@ -79,7 +79,7 @@ def getWordScore(word, n):
     word_score = word_sum * len(word)                                          #multiply word_sum with length of word
     
     if len(word) == n:                                                         #add the bonus score if the length of word is equal to n
-        word_score += 50                                                       #123
+        word_score += 50                                                       
     
     return word_score
     
