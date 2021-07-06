@@ -250,7 +250,7 @@ def playHand(hand, wordList, n):
         # Otherwise (the input is not a single period):
         else:
             # If the word is not valid:
-            if guess not in wordList:
+            if isValidWord(guess, hand, wordList) == False:
                 # Reject invalid word (print a message followed by a blank line)
                 print('Invalid word, please try again.')
             # Otherwise (the word is valid):
