@@ -124,30 +124,30 @@ def playGame(wordList):
 
     wordList: list (string)
     """
-    hand = 0
+    hand = 0                                                                   #initially, nothing is imported in the dictionary, hand
     
-    while True:
-        
+    while True:                                                                #use while loop to execute this function
+                                                                               #ask the user to choose a new, previous hand, or exit the game
         hand_loaded = str(input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ' ))
         
         if hand_loaded == 'n':                                                 #when n is typed, a new random hand will be imported
             hand = dealHand(HAND_SIZE)
             
-            while True:
+            while True:                                                        #execute the second round of while loop to make the user choose whether themselves or computer will play the game
                 comp_or_user = str(input('Enter u to have yourself play, c to have the computer play: '))
             
-                if comp_or_user == 'u':
+                if comp_or_user == 'u':                                        #type u to make themselves play
                     playHand(hand, wordList, HAND_SIZE)
                     break
                 
-                elif comp_or_user == 'c':
+                elif comp_or_user == 'c':                                      #type c to make computer play
                     compPlayHand(hand, wordList, HAND_SIZE)
                     break
             
-                else:
+                else:                                                          #type other words will make the user try again
                     print('Invalid command.')
                 
-        elif hand_loaded == 'r':                                               #when r is typed, last hand will be imported
+        elif hand_loaded == 'r':                                               #when r is typed, first check whether last hand exists. Then other processes will be the same                                               #when r is typed, last hand will be imported
             
             if hand == 0:                                                      #if no last hand is found, the function will make the user choose n or e
                 print('You have not played a hand yet. Please play a new hand first!')
@@ -169,6 +169,7 @@ def playGame(wordList):
                 
         elif hand_loaded == 'e':                                               #if e is typed, stop the game
             break
+            
         
         else:
             print('Invalid command.')
