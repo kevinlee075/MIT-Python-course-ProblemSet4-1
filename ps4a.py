@@ -284,8 +284,30 @@ def playGame(wordList):
  
     2) When done playing the hand, repeat from step 1    
     """
-    # TO DO ... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.") # <-- Remove this line when you code the function
+    hand = 0                                                                   #initially, nothing is imported in the dictionary, hand
+    
+    while True:                                                                #use while loop to execute this function
+                                                                               #ask the user to choose a new, previous hand, or exit the game      
+        hand_loaded = str(input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ' ))
+        
+        if hand_loaded == 'n':                                                 #when n is typed, a new random hand will be imported
+            hand = dealHand(HAND_SIZE)
+            playHand(hand, wordList, HAND_SIZE)
+            
+        elif hand_loaded == 'r':                                               #when r is typed, last hand will be imported
+            
+            if hand == 0:                                                      #if no last hand is found, the function will make the user choose n or e
+                print('You have not played a hand yet. Please play a new hand first!')
+                
+            else:                                                              #if last hand exists, start the game use the last hand
+                playHand(hand, wordList, HAND_SIZE)
+                
+        elif hand_loaded == 'e':                                               #if e is typed, stop the game
+            break
+        
+        else:
+            print('Invalid command.')
+    
    
 
 
